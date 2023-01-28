@@ -1,6 +1,9 @@
+import { useEffect } from "react";
 import Tab from "react-bootstrap/Tab";
 import Tabs from "react-bootstrap/Tabs";
+import { useDispatch } from "react-redux";
 import { useLocation } from "react-router-dom";
+import { authenticationSuccessful } from "../store/Auth";
 import Cron from "./Cron";
 import Images from "./Images";
 import Setting from "./Setting";
@@ -10,6 +13,17 @@ function MainPage() {
   const token = new URLSearchParams(query).get("code");
 
   console.log({ token });
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(
+      authenticationSuccessful({
+        authToken: token.substring(0, s.length() - 2),
+      })
+    );
+    dispatch();
+  });
 
   //   console.log(query);
   return (

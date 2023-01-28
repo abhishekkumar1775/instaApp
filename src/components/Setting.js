@@ -1,4 +1,5 @@
 import Button from "react-bootstrap/Button";
+import { useSelector } from "react-redux";
 
 const clickHandler = () => {
   const newWindow = window.open(
@@ -10,11 +11,14 @@ const clickHandler = () => {
 };
 
 const Setting = () => {
+  const { loggedIn } = useSelector((state) => state.auth);
   return (
-    <div>
+    <div
+      style={{ display: "flex", flexDirection: "column", alignItems: "center" }}
+    >
       <h1>Setting</h1>
-      <Button variant="success" onClick={clickHandler}>
-        Login to instagram
+      <Button variant="success" onClick={clickHandler} disabled={loggedIn}>
+        {loggedIn ? "Already Logged In" : "Click to Login"}
       </Button>
     </div>
   );
