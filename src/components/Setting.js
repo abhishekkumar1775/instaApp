@@ -2,7 +2,7 @@ import Button from "react-bootstrap/Button";
 
 const clickHandler = () => {
   const newWindow = window.open(
-    "https://api.instagram.com/oauth/authorize?client_id=726214525523473&redirect_uri=https://abhishekkumar1775.github.io/front-end-assignment/&scope=user_profile,user_media&response_type=code",
+    "https://api.instagram.com/oauth/authorize?client_id=726214525523473&redirect_uri=https://gleaming-naiad-041388.netlify.app/&scope=user_profile,user_media&response_type=code",
     "_blank",
     "noopener,noreferrer"
   );
