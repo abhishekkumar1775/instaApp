@@ -1,10 +1,17 @@
 import Tab from "react-bootstrap/Tab";
 import Tabs from "react-bootstrap/Tabs";
+import { useLocation } from "react-router-dom";
 import Cron from "./Cron";
 import Images from "./Images";
 import Setting from "./Setting";
 
 function MainPage() {
+  const query = useLocation().search;
+  const token = new URLSearchParams(query).get("code");
+
+  console.log({ token });
+
+  //   console.log(query);
   return (
     <Tabs
       defaultActiveKey="profile"
